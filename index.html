@@ -1,0 +1,633 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hazwan Syauqee Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&family=Barlow+Condensed:wght@500;700;800&family=Roboto+Flex:opsz,wght@8..144,400..800&display=swap">
+<style>
+/* Layout: single column, left-aligned. Detection-box brackets frame the name and every image slot. */
+:root{
+  --bg:#ECEEEB; --surface:#F7F8F6; --ink:#15181B; --muted:#596168; --line:#CBD0CC;
+  --box:#D48C0A; --box-ink:#1A1405; --link:#0D6464;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111417; --surface:#181C20; --ink:#E7EAE7; --muted:#9AA3AA; --line:#2A3036;
+  --box:#F0B132; --box-ink:#1A1405; --link:#62C6C1; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#111417; --surface:#181C20; --ink:#E7EAE7; --muted:#9AA3AA; --line:#2A3036;
+  --box:#F0B132; --box-ink:#1A1405; --link:#62C6C1; color-scheme:dark;}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:var(--link);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--box);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.mono{font-family:var(--mono);font-size:.8rem;letter-spacing:.02em}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+h2{font-size:clamp(1.9rem,4vw,2.6rem);font-variation-settings:"wdth" 112;font-weight:800;letter-spacing:-.01em}
+h3{font-size:clamp(1.5rem,3vw,2rem);font-variation-settings:"wdth" 106;font-weight:750}
+p{margin:0}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.mark{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 120;text-decoration:none;color:var(--ink);letter-spacing:.02em}
+.bar nav{display:flex;gap:clamp(12px,3vw,28px);flex-wrap:wrap}
+.bar nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+.bar nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:clamp(48px,9vw,104px) clamp(40px,6vw,72px);display:grid;gap:28px}
+.bbox{position:relative;display:inline-block;padding:.12em .3em .08em;align-self:start;justify-self:start;max-width:100%}
+.bbox::before{content:"";position:absolute;inset:0;border:2px solid var(--box);pointer-events:none}
+.bbox .tag{position:absolute;left:-2px;bottom:100%;background:var(--box);color:var(--box-ink);font-family:var(--mono);font-size:.75rem;padding:2px 8px;white-space:nowrap}
+.hero h1{font-size:clamp(2.6rem,9vw,6.2rem);font-weight:850;font-variation-settings:"wdth" 118;letter-spacing:-.02em;line-height:.95}
+.hero .lede{font-size:clamp(1.1rem,2.2vw,1.35rem);max-width:38ch;color:var(--ink)}
+.hero .lede span{color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:700;font-size:.95rem;background:transparent}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--box)}
+
+/* sections */
+section{padding-block:clamp(48px,7vw,88px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:10px;margin-bottom:clamp(28px,4vw,48px)}
+
+/* case studies */
+.case{display:grid;gap:24px;padding-block:clamp(32px,5vw,56px)}
+.case + .case{border-top:1px dashed var(--line)}
+.case-head{display:grid;gap:10px;max-width:62ch}
+.case-head .sum{color:var(--muted);font-size:1.08rem}
+.case-body{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:820px){.case-body{grid-template-columns:minmax(0,1fr)}}
+.figs{display:grid;gap:12px;min-width:0}
+.figs .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:620px){.figs .pair:not(.phones){grid-template-columns:minmax(0,1fr)}.shot.tall .ph{inset:8px;padding:10px}.shot.tall .ph .file{font-size:.66rem;word-break:break-all}.shot.tall .ph p{font-size:.8rem}}
+.details{display:grid;gap:20px;min-width:0}
+.details h4{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;font-weight:500}
+.details ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:.76rem;border:1px solid var(--line);padding:3px 8px;background:var(--surface)}
+.links{display:flex;flex-wrap:wrap;gap:16px;font-weight:700;font-size:.95rem}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
+.metrics div{padding:14px 12px 12px 0;display:grid;gap:2px}
+.metrics div + div{padding-left:14px;border-left:1px solid var(--line)}
+.metrics b{font-family:var(--display);font-variation-settings:"wdth" 110;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;font-variant-numeric:tabular-nums}
+.metrics span{font-size:.82rem;color:var(--muted);line-height:1.3}
+@media (max-width:620px){.metrics{grid-template-columns:1fr 1fr}.metrics div:nth-child(3){padding-left:0;border-left:0}.metrics div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+/* image slot: shows the photo if present, otherwise a labelled placeholder */
+.shot{position:relative;margin:0;background:var(--surface);border:1px solid var(--line);aspect-ratio:16/10;max-width:100%;overflow:hidden}
+.shot.tall{aspect-ratio:9/16}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.shot .ph{position:absolute;inset:14px;display:grid;align-content:center;justify-items:start;gap:8px;padding:18px;color:var(--muted)}
+.shot .ph::before{content:"";position:absolute;inset:0;border:2px dashed var(--box);opacity:.8}
+.shot .ph .file{background:var(--box);color:var(--box-ink);font-family:var(--mono);font-size:.74rem;padding:2px 8px}
+.shot .ph p{font-size:.9rem;line-height:1.45;max-width:40ch}
+.shot.has-img .ph{display:none}
+.shot[data-fit="contain"] img{object-fit:contain;object-position:center;background:var(--surface)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:6px}
+
+.todo{border-bottom:2px dashed var(--box);color:var(--muted);font-style:italic}
+.note{font-size:.85rem;color:var(--muted)}
+
+/* more work */
+.more{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,32px);align-items:center;background:var(--surface);border:1px solid var(--line);padding:clamp(16px,3vw,28px)}
+@media (max-width:760px){.more{grid-template-columns:minmax(0,1fr)}}
+.more .details{gap:14px}
+
+/* experience */
+.timeline{display:grid;gap:0}
+.row{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:clamp(16px,3vw,40px);padding-block:22px;border-top:1px solid var(--line)}
+.row:last-child{border-bottom:1px solid var(--line)}
+.row .when{font-family:var(--mono);font-size:.85rem;color:var(--muted);padding-top:4px}
+.row h3{font-size:1.3rem}
+.row .org{color:var(--muted);margin:4px 0 10px}
+@media (max-width:620px){.row{grid-template-columns:minmax(0,1fr);gap:6px}}
+
+/* about */
+.about{display:grid;align-items:start;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,64px)}
+@media (max-width:820px){.about{grid-template-columns:minmax(0,1fr)}}
+.about .text{display:grid;gap:16px;align-content:start;max-width:62ch}
+.skills{display:grid;gap:16px}
+.skills > div{display:grid;gap:8px}
+
+/* contact */
+.contact{display:grid;gap:20px}
+.contact .big{font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:800;font-size:clamp(1.4rem,5vw,2.6rem);word-break:break-all;user-select:all}
+.copy{font:inherit;font-weight:700;font-size:.9rem;cursor:pointer}
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* ===== Per-project themes (bold): each case redefines the page tokens, so every child follows ===== */
+.case{background:var(--bg);color:var(--ink);padding-block:clamp(56px,8vw,96px)}
+.case + .case{border-top:0}
+.case > .wrap{display:grid;gap:24px}
+.case h3{font-family:var(--h3-font,var(--display));font-size:clamp(2rem,5vw,3.2rem);letter-spacing:var(--h3-track,-.01em);text-transform:var(--h3-case,none)}
+.case .case-head .eyebrow{color:var(--box)}
+#work{padding-bottom:0}
+#work > .wrap:last-child{padding-block:clamp(48px,7vw,80px)}
+.banner{position:relative;overflow:hidden;height:clamp(220px,34vw,340px)}
+
+.t-fyp{--bg:#14171A;--surface:#1C2024;--ink:#E9ECEA;--muted:#A3ABB2;--line:#2E3439;--link:#F5B700;--box:#F5B700;--box-ink:#14171A;--h3-font:var(--mono);--h3-track:-.03em;color-scheme:dark}
+.t-mimos{--bg:#2A0E2B;--surface:#351337;--ink:#F6EAF4;--muted:#CFAFC9;--line:#4E2450;--link:#FF7AD1;--box:#E04FB8;--box-ink:#2A0E2B;color-scheme:dark}
+.t-sight{--bg:#0F1923;--surface:#16232F;--ink:#ECE8E1;--muted:#9AA6B2;--line:#253545;--link:#FF4655;--box:#FF4655;--box-ink:#0F1923;--h3-font:"Barlow Condensed","Arial Narrow",sans-serif;--h3-track:.04em;--h3-case:uppercase;color-scheme:dark}
+.t-cat{--bg:#E8F1FB;--surface:#F5F9FE;--ink:#0B1F33;--muted:#4A6178;--line:#C3D6EA;--link:#0B6BCB;--box:#0B6BCB;--box-ink:#FFFFFF;--h3-font:"Roboto Flex",Roboto,system-ui,sans-serif;color-scheme:light}
+.t-sight .chip{clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.t-cat .chip{border-radius:8px;background:#D3E4F7;border-color:#D3E4F7}
+
+/* FYP banner: dashcam */
+.dash{position:absolute;inset:0;background:linear-gradient(#1d2226 0 38%,#2a2f33 38%)}
+.dash svg{position:absolute;inset:0;width:100%;height:100%}
+.hud{position:absolute;inset:14px;pointer-events:none;font-family:var(--mono);font-size:.72rem;color:#E9ECEA}
+.hud .corner{position:absolute;width:22px;height:22px;border:2px solid #E9ECEA;opacity:.6}
+.hud .tl{top:0;left:0;border-right:0;border-bottom:0}.hud .tr{top:0;right:0;border-left:0;border-bottom:0}
+.hud .bl{bottom:0;left:0;border-right:0;border-top:0}.hud .br{bottom:0;right:0;border-left:0;border-top:0}
+.hud .rec{position:absolute;top:6px;left:32px;display:flex;align-items:center;gap:6px}
+.hud .rec i{width:8px;height:8px;border-radius:50%;background:#FF4B3E;animation:blink 1.2s steps(2) infinite}
+.hud .gps{position:absolute;bottom:6px;left:32px;opacity:.8}
+.hud .fps{position:absolute;top:6px;right:32px;opacity:.8}
+@keyframes blink{50%{opacity:0}}
+
+/* MIMOS banner: racks */
+.dc{position:absolute;inset:0;background:radial-gradient(120% 90% at 85% 0%,#B31E8A 0%,#5B1A72 45%,#1F0B24 100%)}
+.dc .photo{position:absolute;inset:0;background-size:cover;background-position:center;mix-blend-mode:luminosity;opacity:.35}
+.racks{position:absolute;inset:auto 0 0 0;height:78%;display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:0 18px}
+.rack{background:rgba(10,4,12,.55);border:1px solid rgba(255,255,255,.12);display:grid;align-content:start;gap:5px;padding:8px 6px}
+.u{height:9px;background:rgba(255,255,255,.07);display:flex;justify-content:flex-end;align-items:center;gap:3px;padding-right:4px}
+.u i{width:4px;height:4px;border-radius:50%;background:#3BE38A;opacity:.85}
+.u i.amber{background:#FFB547}
+.u.on i{animation:led 2.4s infinite}
+@keyframes led{0%,100%{opacity:.9}50%{opacity:.25}}
+.assettag{position:absolute;top:16px;left:18px;font-family:var(--mono);font-size:.72rem;background:#F6EAF4;color:#2A0E2B;padding:3px 8px;letter-spacing:.06em}
+
+/* Sightline banner: heat layer */
+.tac{position:absolute;inset:0;background:#0F1923}
+.tac canvas{position:absolute;inset:0;width:100%;height:100%}
+.tac .label{position:absolute;left:0;bottom:22px;background:#FF4655;color:#0F1923;font:800 1rem "Barlow Condensed",sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:6px 26px 6px 18px;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%)}
+.tac .legend{position:absolute;right:18px;top:16px;display:flex;gap:6px;font:700 .8rem "Barlow Condensed",sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.tac .legend span{padding:4px 10px;border:1px solid rgba(236,232,225,.35);color:#ECE8E1;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.tac .legend span.on{background:#ECE8E1;color:#0F1923;border-color:#ECE8E1}
+
+/* Catalog banner: phones that hold the screenshots */
+.mat{position:absolute;inset:0;background:linear-gradient(160deg,#DCEAF8,#C3DAF3);display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,4vw,40px);padding-top:26px}
+.phone{width:clamp(110px,18vw,170px);aspect-ratio:9/19;background:#0B1F33;border-radius:22px;padding:7px;transform:translateY(22%);box-shadow:0 20px 40px rgba(11,31,51,.25)}
+.phone:nth-child(2){transform:translateY(12%)}
+.screen{width:100%;height:100%;background:#FAFCFF;border-radius:16px;overflow:hidden;display:grid;align-content:start;gap:6px;padding:10px 8px}
+.screen.has-img{padding:0}
+.screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.screen .bar{height:16px;background:#D3E4F7;border-radius:8px}
+.screen .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.screen .card{aspect-ratio:3/4;background:#E8F1FB;border-radius:8px;display:grid;align-content:end;padding:5px;gap:3px}
+.screen .card i{display:block;height:5px;background:#9DBFE3;border-radius:3px}
+.screen .card i+i{width:50%;background:#0B6BCB}
+.screen .hero{aspect-ratio:1;background:#D3E4F7;border-radius:10px}
+.screen .line{height:6px;background:#D3E4F7;border-radius:3px}
+.screen .line.s{width:60%}.screen .btn{height:18px;background:#0B6BCB;border-radius:9px;margin-top:4px}
+.slotnote{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px dashed var(--line);padding:3px 8px;background:var(--surface)}
+.case-body.solo{grid-template-columns:minmax(0,1fr)}
+.case-body.solo .details{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));column-gap:clamp(24px,4vw,48px)}
+
+@media (prefers-reduced-motion: reduce){.hud .rec i,.u.on i{animation:none}}
+@media (max-width:560px){.racks{grid-template-columns:repeat(4,1fr)}.racks .rack:nth-child(n+5){display:none}.tac .legend{display:none}}
+
+/* award card */
+.award{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:20px;align-items:center;padding:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-decoration:none;max-width:640px}
+.award img{width:100%;aspect-ratio:1.414;object-fit:cover;display:block;border:1px solid var(--line)}
+.award b{display:block;font-family:var(--display);font-size:1.25rem;line-height:1.2;margin-block:2px 4px}
+.award .sub{font-size:.9rem;color:var(--muted)}
+.award .view{display:inline-block;margin-top:8px;color:var(--link);font-weight:700;font-size:.92rem;text-decoration:underline;text-underline-offset:3px}
+.award:hover{border-color:var(--box)}
+@media (max-width:520px){.award{grid-template-columns:minmax(0,1fr)}}
+.cert-link{font-weight:700;font-size:.92rem}
+
+/* photo strip */
+.life{display:grid;gap:12px}
+.life-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.life-grid figure{margin:0;display:grid;gap:6px}
+.life-grid img{width:100%;aspect-ratio:1;object-fit:cover;display:block;border:1px solid var(--line)}
+.life-grid figcaption{margin:0;font-size:.82rem;color:var(--muted)}
+@media (max-width:700px){.life-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head><body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">HAZWAN</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <p class="eyebrow">Damansara, Selangor · Open to work</p>
+    <h1 class="bbox"><span class="tag">ai · full stack</span>Ahmad Hazwan<br>Syauqee</h1>
+    <p class="lede">Computer science graduate who builds computer vision systems and the web apps around them. <span>From training a YOLOv8 model to shipping the dashboard people actually use.</span></p>
+    <div class="actions">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn" href="https://linkedin.com/in/hazwan-syauqee" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/HazzyWan" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Selected work</p>
+        <h2>Projects</h2>
+      </div>
+
+      <!-- 1. FYP -->
+    </div>
+      <article class="case t-fyp" id="road-hazard">
+      <div class="wrap">
+        <div class="banner">
+          <div class="dash">
+            <svg viewBox="0 0 1000 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <polygon points="340,129 660,129 1000,340 0,340" fill="#3a3f43"/>
+              <polygon points="490,129 510,129 525,165 475,165" fill="#d9d3c3" opacity=".9"/>
+              <polygon points="468,190 532,190 552,245 448,245" fill="#d9d3c3" opacity=".9"/>
+              <polygon points="438,280 562,280 590,340 410,340" fill="#d9d3c3" opacity=".9"/>
+              <ellipse cx="300" cy="262" rx="70" ry="20" fill="#1c1f22"/>
+              <ellipse cx="300" cy="258" rx="58" ry="14" fill="#141618"/>
+              <path d="M600 190 l30 12 l-8 18 l26 10 l-14 22 l30 6" stroke="#15181a" stroke-width="4" fill="none"/>
+              <path d="M640 205 l18 -6 M622 220 l-14 8 M660 240 l16 4" stroke="#15181a" stroke-width="3" fill="none"/>
+              <g fill="none" stroke="#F5B700" stroke-width="3"><rect x="220" y="230" width="162" height="58"/><rect x="588" y="176" width="110" height="100"/></g>
+              <g font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">
+                <rect x="218" y="208" width="132" height="22" fill="#F5B700"/><text x="226" y="224" fill="#14171A">pothole 0.91</text>
+                <rect x="586" y="154" width="112" height="22" fill="#F5B700"/><text x="594" y="170" fill="#14171A">crack 0.84</text>
+              </g>
+            </svg>
+            <div class="hud">
+              <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+              <span class="rec"><i></i>REC · YOLOv8n</span>
+              <span class="fps">mAP@0.5 83.28%</span>
+              <span class="gps">3.1569° N 101.6130° E · Damansara</span>
+            </div>
+          </div>
+        </div>
+        <div class="case-head">
+          <p class="eyebrow">Final year project · USM · 2025/26</p>
+          <h3>AI-Based Road Hazard Detection</h3>
+          <p class="sum">A system that lets the public report road damage from their phone, uses AI to check the report, and passes confirmed hazards to the people who fix them.</p>
+        </div>
+        <div class="metrics" aria-label="Key results">
+          <div><b>83.28%</b><span>mAP@0.5 on validation (target was 70%)</span></div>
+          <div><b>8,540</b><span>labelled road images, up from 4,318</span></div>
+          <div><b>2</b><span>detection classes: pothole and crack, with crack subtypes like alligator and longitudinal</span></div>
+          <div><b>Silver</b><span>PIXEL 2026 innovation showcase</span></div>
+        </div>
+        <div class="case-body">
+          <div class="figs">
+            <figure class="shot" data-src="images/fyp-hero.jpg">
+              <div class="ph"><span class="file">images/fyp-hero.jpg</span><p>The citizen app or admin view showing a pothole detected with bounding boxes and a confidence score.</p></div>
+            </figure>
+            <div class="pair">
+              <figure class="shot" data-src="images/fyp-map.jpg">
+                <div class="ph"><span class="file">images/fyp-map.jpg</span><p>Admin dashboard with the Leaflet hazard map.</p></div>
+              </figure>
+              <figure class="shot" data-fit="contain" data-src="images/fyp-augment.jpg">
+                <div class="ph"><span class="file">images/fyp-augment.jpg</span><p>Tropical augmentation grid (rain, shadow, glare).</p></div>
+              </figure>
+            </div>
+          </div>
+          <div class="details">
+            <div>
+              <h4>Problem</h4>
+              <p>Road damage in Malaysia is found through slow manual inspections and scattered public complaints. Every report has to be checked by hand before repairs are scheduled, so hazards stay on the road for longer than they should.</p>
+            </div>
+            <div>
+              <h4>What I built</h4>
+              <ul>
+                <li>A YOLOv8 detector trained on local road images, with a custom "tropical augmentation" step that simulates monsoon rain, tree shadows and puddle glare.</li>
+                <li>A React PWA so anyone can report a hazard with a photo and GPS location, no sign-up needed.</li>
+                <li>An admin dashboard where the AI's detections are confirmed or corrected. Corrections feed a retraining loop (human in the loop) that only promotes a new model if it improves.</li>
+                <li>A contractor portal so verified hazards go straight to the team that repairs them.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Stack</h4>
+              <div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Flask</span><span class="chip">Google Cloud Run</span><span class="chip">Firebase</span><span class="chip">React PWA</span><span class="chip">Leaflet.js</span></div>
+            </div>
+            <div class="links">
+              <a href="https://youtu.be/7WFv5joPx0U" target="_blank" rel="noopener">PIXEL 2026 presentation</a>
+            </div>
+          </div>
+        </div>
+        <a class="award" href="images/pixel-certificate.jpg" target="_blank" rel="noopener">
+          <img src="images/pixel-certificate.jpg" alt="PIXEL 2026 Silver Award certificate">
+          <span>
+            <span class="eyebrow">Award</span>
+            <b>Silver Award, PIXEL 2026</b>
+            <span class="sub">School of Computer Sciences, Universiti Sains Malaysia · 20 June 2026</span><br>
+            <span class="view">View certificate</span>
+          </span>
+        </a>
+      </div>
+      </article>
+
+      <!-- 2. MIMOS -->
+      <article class="case t-mimos" id="mimos">
+      <div class="wrap">
+        <div class="banner">
+          <div class="dc">
+            <div class="photo" id="mimos-photo"></div>
+            <div class="racks" id="racks"></div>
+            <span class="assettag">ASSET · DCIMS v2.0 · EUC / SW / SRV / NET</span>
+            <span class="slotnote" id="mimos-note">optional: images/mimos-building.jpg</span>
+          </div>
+        </div>
+        <div class="case-head">
+          <p class="eyebrow">Industrial internship · MIMOS Berhad · Mar to Sep 2025</p>
+          <h3>Data Centre Inventory System Upgrade</h3>
+          <p class="sum">Turned an internal tool that only tracked servers and network gear into a full asset management system with role-based access and audit history.</p>
+        </div>
+        <div class="case-body">
+          <div class="figs">
+            <figure class="shot" data-src="images/mimos-dashboard.jpg">
+              <div class="ph"><span class="file">images/mimos-dashboard.jpg</span><p>Super Admin dashboard (Figure 3.8 in the report). Blur the MIMOS logo and device counts, or get permission first.</p></div>
+            </figure>
+            <figure class="shot" data-src="images/mimos-module.jpg">
+              <div class="ph"><span class="file">images/mimos-module.jpg</span><p>Software Inventory page (Figure 3.3), same blurring applies.</p></div>
+            </figure>
+          </div>
+          <div class="details">
+            <div>
+              <h4>Problem</h4>
+              <p>The existing system was written in procedural PHP with little documentation. Devices were grouped by location, deleted records disappeared without a trace, and every user had the same access.</p>
+            </div>
+            <div>
+              <h4>What I did</h4>
+              <ul>
+                <li>Built two new modules for staff computers and software licences, with assignment, return and history tracking.</li>
+                <li>Added role-based access for five admin roles, each with its own dashboard.</li>
+                <li>Added audit trails to every module and replaced deletion with decommission history.</li>
+                <li>Reorganised devices by category instead of location to make searching faster.</li>
+                <li>Wrote and ran user acceptance tests with each admin group, fixed the issues they raised, and deployed to the test server.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Stack</h4>
+              <div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">Bootstrap 3</span><span class="chip">jQuery</span><span class="chip">LDAP</span><span class="chip">Figma</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="life">
+          <p class="eyebrow">Life at MIMOS</p>
+          <div class="life-grid">
+            <figure><img src="images/mimos-life-assembly.jpg" alt="Monday assembly in the MIMOS lobby" style="object-position:center 60%"><figcaption>Fortnightly Monday assembly</figcaption></figure>
+            <figure><img src="images/mimos-life-raya.jpg" alt="Hari Raya celebration group photo"><figcaption>Hari Raya celebration</figcaption></figure>
+            <figure><img src="images/mimos-life-activity.jpg" alt="Team activity during the Raya event" style="object-position:center 70%"><figcaption>Raya event activities</figcaption></figure>
+            <figure><img src="images/mimos-life-badminton.jpg" alt="MIMOSlympics badminton team"><figcaption>Badminton team, MIMOSlympics</figcaption></figure>
+          </div>
+        </div>
+      </div>
+      </article>
+
+      <!-- 3. Sightline (Valorant heatmap) -->
+      <article class="case t-sight" id="sightline">
+      <div class="wrap">
+        <div class="banner">
+          <div class="tac">
+            <canvas id="heat" aria-hidden="true"></canvas>
+            <div class="legend" aria-hidden="true"><span class="on">Positions</span><span>Deaths</span><span>Kills</span></div>
+            <span class="label">Sightline</span>
+          </div>
+        </div>
+        <div class="case-head">
+          <p class="eyebrow">Side project · Valorant heatmap · 2026</p>
+          <h3>Sightline</h3>
+          <p class="sum">An interactive heatmap of where Valorant players stand, die and get kills on every competitive map, built from 1,358 ranked matches for players who want to learn common positions by rank.</p>
+        </div>
+        <div class="case-body">
+          <div class="figs">
+            <figure class="shot" data-fit="contain" style="aspect-ratio:997/881" data-src="images/valorant-ui.jpg">
+              <div class="ph"><span class="file">images/valorant-ui.jpg</span><p>Full Sightline dashboard.</p></div>
+            </figure>
+            <div class="pair">
+              <figure class="shot" data-src="images/valorant-heatmap.jpg">
+                <div class="ph"><span class="file">images/valorant-heatmap.jpg</span><p>Heatmap close-up.</p></div>
+              </figure>
+              <figure class="shot" data-fit="contain" data-src="images/valorant-timing.jpg">
+                <div class="ph"><span class="file">images/valorant-timing.jpg</span><p>Round timing chart.</p></div>
+              </figure>
+            </div>
+          </div>
+          <div class="details">
+            <div>
+              <h4>Why I built it</h4>
+              <p>When I peek a site, where is the enemy most likely to be? I wanted to answer that with real match data instead of gut feel, and see how my friends and I compare to Immortal and Radiant players.</p>
+            </div>
+            <div>
+              <h4>How it works</h4>
+              <ul>
+                <li>Match data comes from the HenrikDev API (an unofficial Riot data source), with minimaps, callouts and agent icons from valorant-api.com.</li>
+                <li>Each kill records where all ten players were standing. Python scripts convert those game coordinates onto the minimap, bin them into a 48x48 grid and blur them into density heatmaps, labelled with the nearest callout.</li>
+                <li>Filter by map, rank (Iron to Radiant), side, round phase, agent class, agent or individual player, and switch between positions, deaths and kills. A round-timing chart shows when fights happen.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Stack</h4>
+              <div class="chips"><span class="chip">Python</span><span class="chip">pandas, NumPy, SciPy</span><span class="chip">HTML/JS</span><span class="chip">HenrikDev API</span><span class="chip">Netlify</span></div>
+            </div>
+            <div class="links">
+              <a href="https://sightline-val.netlify.app" target="_blank" rel="noopener">Live demo</a>
+              <!-- Add once the repo is public: <a href="https://github.com/HazzyWan/sightline" target="_blank" rel="noopener">GitHub</a> -->
+            </div>
+            <p class="note">Sightline isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties.</p>
+          </div>
+        </div>
+      </div>
+      </article>
+
+      <!-- 4. Product catalog -->
+      <article class="case t-cat" id="catalog">
+      <div class="wrap">
+        <div class="banner">
+          <div class="mat">
+            <div class="phone"><div class="screen" data-src="images/catalog-list.png" role="img" aria-label="Product list screen"><div class="bar"></div><div class="grid"><div class="card"><i></i><i></i></div><div class="card"><i></i><i></i></div><div class="card"><i></i><i></i></div><div class="card"><i></i><i></i></div></div></div></div>
+            <div class="phone"><div class="screen" data-src="images/catalog-detail.png" role="img" aria-label="Product detail screen"><div class="hero"></div><div class="line"></div><div class="line s"></div><div class="line"></div><div class="btn"></div></div></div>
+          </div>
+          <span class="slotnote" id="cat-note">images/catalog-list.png · catalog-detail.png</span>
+        </div>
+        <div class="case-head">
+          <p class="eyebrow">Technical assessment · 2026</p>
+          <h3>Product Catalog App</h3>
+          <p class="sum">A mobile product catalog built in Flutter as a technical assessment for a job application, time-boxed to roughly 2 to 3 hours.</p>
+        </div>
+        <div class="case-body solo">
+          <div class="details">
+            <div>
+              <h4>The brief</h4>
+              <p>Build a small product catalog app that lists products from a public REST API, lets users tap into a product for full details, and includes basic search. The app needed to handle loading, empty and error states clearly, support pagination as the user scrolls, and be organised into clear code layers rather than one flat file.</p>
+            </div>
+            <div>
+              <h4>What I did</h4>
+              <ul>
+                <li>A product list with thumbnail, title and price, infinite scroll pagination and pull-to-refresh. A detail screen with full description, price, rating and a swipeable image gallery. A debounced search bar.</li>
+                <li>Data comes from the DummyJSON REST API, fetched over HTTP and parsed into typed Dart models.</li>
+                <li>A sealed-class state pattern (Loading, Empty, Loaded, Error) with a Provider-based state manager, so the UI is always in exactly one well-defined state instead of juggling boolean flags that could contradict each other.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Stack</h4>
+              <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Provider</span><span class="chip">REST (http package)</span></div>
+            </div>
+            <div class="links">
+              <a href="https://github.com/HazzyWan/product-catalog-app" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://youtu.be/dViehpt6_Zg" target="_blank" rel="noopener">Walkthrough video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </article>
+
+    <div class="wrap">
+      <!-- More work -->
+      <div class="sec-head" style="margin-top:clamp(24px,4vw,40px)">
+        <p class="eyebrow">More work</p>
+      </div>
+      <div class="more">
+        <figure class="shot" data-fit="contain" data-src="images/tableau-dashboard.png">
+          <div class="ph"><span class="file">images/tableau-dashboard.png</span><p>Full Tableau dashboard.</p></div>
+        </figure>
+        <div class="details">
+          <p class="eyebrow">Business intelligence coursework · 2026</p>
+          <h3>Superstore Performance Dashboard</h3>
+          <p>A Tableau dashboard that checks whether sales are actually profitable. Filters for region, category and segment update every view at once.</p>
+          <p class="note">Main finding: furniture brings in high revenue but almost no profit, while technology has the best margins.</p>
+          <div class="chips"><span class="chip">Tableau</span><span class="chip">Data cleaning</span><span class="chip">Dashboard design</span></div>
+          <div class="links"><a href="#" target="_blank" rel="noopener">View on Tableau Public</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Experience &amp; education</p>
+        <h2>Where I've been</h2>
+      </div>
+      <div class="timeline">
+        <div class="row">
+          <p class="when">Mar 2025 to Sep 2025</p>
+          <div>
+            <h3>Software Engineering Intern</h3>
+            <p class="org">MIMOS Berhad, Kuala Lumpur</p>
+            <p>Upgraded the Data Centre Inventory Management System end to end: new modules, role-based access, audit trails, user acceptance testing and deployment.</p>
+          </div>
+        </div>
+        <div class="row">
+          <p class="when">2026</p>
+          <div>
+            <h3>Bachelor of Computer Science (Intelligent Computing) with Honours</h3>
+            <p class="org">Universiti Sains Malaysia, Penang</p>
+            <p>Final year project on AI road hazard detection, awarded Silver at PIXEL 2026.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="text">
+        <p class="eyebrow">About</p>
+        <h2>Hi, I'm Hazwan.</h2>
+        <p>I like projects that take a model out of a notebook and turn it into something people can use. My final year project covered the whole path, from labelling road images and training a detector to deploying it on the cloud with a working app for citizens, admins and contractors.</p>
+        <p>At MIMOS I learned PHP on the job and worked inside a legacy codebase with real users, which taught me to test carefully and keep changes small. Outside of work I build side projects around games and creative tech.</p>
+        <p>I'm looking for roles in software engineering, AI and creative technology, based in the Klang Valley.</p>
+      </div>
+      <div class="skills">
+        <div><h4 class="eyebrow">AI &amp; data</h4><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Data augmentation</span><span class="chip">Tableau</span></div></div>
+        <div><h4 class="eyebrow">Web</h4><div class="chips"><span class="chip">React</span><span class="chip">Flask</span><span class="chip">PHP</span><span class="chip">Node.js / Express</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span></div></div>
+        <div><h4 class="eyebrow">Databases</h4><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL (Supabase)</span><span class="chip">Firebase / Firestore</span></div></div>
+        <div><h4 class="eyebrow">Cloud &amp; tools</h4><div class="chips"><span class="chip">Google Cloud Run</span><span class="chip">Docker</span><span class="chip">Figma</span></div></div>
+        <div><h4 class="eyebrow">Mobile &amp; 3D</h4><div class="chips"><span class="chip">Flutter</span><span class="chip">Unity</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's talk.</h2>
+      <p class="big" id="email">hzwnsyq@gmail.com</p>
+      <div class="actions">
+        <button class="btn copy" id="copy" type="button">Copy email</button>
+        <a class="btn" href="https://linkedin.com/in/hazwan-syauqee" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/HazzyWan" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="yr">2026</span> Ahmad Hazwan Syauqee</span><span>Built by hand, hosted on GitHub Pages</span></div>
+</footer>
+
+<script>
+// Catalog phone screens: swap the sketch for the real screenshot when present.
+document.querySelectorAll('.screen[data-src]').forEach(function(sc){
+  var img=new Image(); img.alt=sc.getAttribute('aria-label')||'';
+  img.onload=function(){ sc.innerHTML=''; sc.appendChild(img); sc.classList.add('has-img'); var n=document.getElementById('cat-note'); if(n) n.hidden=true; };
+  img.src=sc.getAttribute('data-src');
+});
+// MIMOS racks + optional building photo
+(function(){
+  var racks=document.getElementById('racks'); if(!racks) return; var html='';
+  for(var r=0;r<6;r++){html+='<div class="rack">';for(var u=0;u<14;u++){var on=Math.random()<.35,amb=Math.random()<.12;html+='<div class="u'+(on?' on':'')+'"><i'+(amb?' class="amber"':'')+'></i><i></i></div>';}html+='</div>';}
+  racks.innerHTML=html;
+  function bg(src,fallback){var im=new Image(); im.onload=function(){document.getElementById('mimos-photo').style.backgroundImage='url('+src+')';document.getElementById('mimos-note').hidden=true;}; im.onerror=function(){ if(fallback) bg(fallback); }; im.src=src;}
+  bg('images/mimos-building.jpg','images/mimos-life-assembly.jpg');
+})();
+// Sightline heat layer: abstract rooms and density blobs, not a real map
+(function(){
+  var cv=document.getElementById('heat'); if(!cv) return; var ctx=cv.getContext('2d');
+  function draw(){
+    var w=cv.clientWidth,h=cv.clientHeight,d=window.devicePixelRatio||1; if(!w||!h) return; cv.width=w*d; cv.height=h*d; ctx.setTransform(d,0,0,d,0,0);
+    ctx.fillStyle='#0F1923'; ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle='rgba(236,232,225,.06)'; ctx.lineWidth=1; var step=w/48;
+    for(var x=0;x<w;x+=step){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+    for(var y=0;y<h;y+=step){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+    ctx.fillStyle='#1E2B38';
+    [[.08,.18,.2,.3],[.08,.48,.12,.36],[.26,.36,.3,.16],[.5,.12,.14,.6],[.62,.2,.26,.18],[.68,.52,.24,.3],[.3,.66,.22,.14]].forEach(function(r){ctx.fillRect(r[0]*w,r[1]*h,r[2]*w,r[3]*h)});
+    ctx.globalCompositeOperation='lighter';
+    [[.17,.32,.12,1],[.56,.3,.1,.9],[.57,.62,.08,.7],[.78,.3,.09,.8],[.4,.44,.07,.6],[.8,.66,.1,.75],[.14,.66,.07,.5],[.4,.73,.06,.45]].forEach(function(p){
+      var r=p[2]*w,g=ctx.createRadialGradient(p[0]*w,p[1]*h,0,p[0]*w,p[1]*h,r);
+      g.addColorStop(0,'rgba(255,214,90,'+.85*p[3]+')');g.addColorStop(.35,'rgba(255,70,85,'+.55*p[3]+')');g.addColorStop(1,'rgba(255,70,85,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(p[0]*w,p[1]*h,r,0,7);ctx.fill();});
+    ctx.globalCompositeOperation='source-over';
+  }
+  draw(); addEventListener('resize',draw);
+})();
+// Load each image slot; keep the placeholder if the file isn't there yet.
+document.querySelectorAll('.shot[data-src]').forEach(function(fig){
+  var img = new Image();
+  img.alt = fig.querySelector('.ph p') ? fig.querySelector('.ph p').textContent : '';
+  img.onload = function(){ fig.insertBefore(img, fig.firstChild); fig.classList.add('has-img'); };
+  img.src = fig.getAttribute('data-src');
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('copy').addEventListener('click', function(){
+  var b = this, t = document.getElementById('email').textContent;
+  function done(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy email'; }, 1600); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(t).then(done, select);
+  } else { select(); }
+  function select(){ var r = document.createRange(); r.selectNodeContents(document.getElementById('email')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press Ctrl+C'; }
+});
+</script>
+</body></html>
