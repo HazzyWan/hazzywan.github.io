@@ -263,6 +263,25 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .portrait{background:transparent}
 .portrait::after{content:"";position:absolute;inset:-6px;border:2px solid var(--box);pointer-events:none}
 .portrait .tag{position:absolute;left:-6px;top:-30px;background:var(--box);color:var(--box-ink,#1A1405);font-family:var(--mono);font-size:.72rem;padding:2px 8px;z-index:1}
+
+.tl-label{margin:28px 0 0;padding-bottom:10px;color:var(--box)}
+.tl-label:first-child{margin-top:0}
+.row-list{margin:10px 0 0;padding-left:1.1em;display:grid;gap:6px;color:var(--ink)}
+.row .when{white-space:nowrap}
+#about{border-top:0}
+
+/* design gallery */
+.design-intro{color:var(--muted);max-width:60ch}
+.dgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,19vw,240px);gap:10px}
+.dtile{position:relative;display:block;overflow:hidden;background:#1C1E21;border:1px solid var(--line)}
+.dtile img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .3s ease}
+.dtile:hover img{transform:scale(1.03)}
+.dtile:focus-visible{outline:2px solid var(--box);outline-offset:2px}
+.span2{grid-column:span 2}.span3{grid-column:span 3}
+.dcap{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;font-size:.78rem;line-height:1.3;color:#E9ECEA;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+.dcap b{display:block;font-size:.84rem}
+@media (max-width:700px){.dgrid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,40vw,220px)}.span3{grid-column:span 2}}
+@media (prefers-reduced-motion: reduce){.dtile img{transition:none}}
 </style>
 </head><body>
 
@@ -270,9 +289,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <div class="wrap">
     <a class="mark" href="#top">HAZWAN</a>
     <nav aria-label="Sections">
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
-      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -290,6 +309,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <a class="btn" href="https://github.com/HazzyWan" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="text">
+        <p class="eyebrow">About</p>
+        <div class="about-head">
+          <figure class="portrait"><span class="tag">hazwan</span><img src="images/hazwan.png" alt="Portrait of Ahmad Hazwan Syauqee"></figure>
+          <h2>Hi, I'm Hazwan.</h2>
+        </div>
+        <p>I like taking a model out of a notebook and turning it into something people use. My final year project went from labelling road images to a deployed app for citizens, admins and contractors.</p>
+        <p>Outside code, I do photography, poster design and video editing, which I did for my residential college's media team.</p>
+        <p>I'm looking for roles in software engineering, AI and creative technology in the Klang Valley.</p>
+      </div>
+      <div class="skills">
+        <div><h4 class="eyebrow">AI &amp; data</h4><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Data augmentation</span><span class="chip">Tableau</span></div></div>
+        <div><h4 class="eyebrow">Web</h4><div class="chips"><span class="chip">React</span><span class="chip">Flask</span><span class="chip">PHP</span><span class="chip">Node.js / Express</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span></div></div>
+        <div><h4 class="eyebrow">Databases</h4><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL (Supabase)</span><span class="chip">Firebase / Firestore</span></div></div>
+        <div><h4 class="eyebrow">Cloud &amp; tools</h4><div class="chips"><span class="chip">Google Cloud Run</span><span class="chip">Docker</span><span class="chip">Figma</span></div></div>
+        <div><h4 class="eyebrow">Mobile &amp; 3D</h4><div class="chips"><span class="chip">Flutter</span><span class="chip">Unity</span></div></div>
+      </div>
+    </div>
+  </section>
 
   <section id="work">
     <div class="wrap">
@@ -667,6 +708,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="chips"><span class="chip">Tableau</span><span class="chip">Data cleaning</span><span class="chip">Dashboard design</span></div>
         </div>
       </div>
+
+      <div class="design" id="design">
+        <div class="sec-head" style="margin-top:clamp(40px,6vw,64px)">
+          <p class="eyebrow">Design work · Desasiswa Aman Damai</p>
+          <p class="design-intro">Posters, jerseys and merch I designed as the college's multimedia exco.</p>
+        </div>
+        <div class="dgrid">
+          <a class="dtile span1" href="images/design-aceh-poster.jpg" target="_blank" rel="noopener"><img src="images/design-aceh-poster.jpg" alt="Leaders' Odyssey poster" loading="lazy"><span class="dcap"><b>Leaders' Odyssey poster</b> Aceh study trip, 2024</span></a>
+          <a class="dtile span2" href="images/design-lo-jersey.jpg" target="_blank" rel="noopener"><img src="images/design-lo-jersey.jpg" alt="Leaders' Odyssey jersey" loading="lazy"><span class="dcap"><b>Leaders' Odyssey jersey</b> Front and back</span></a>
+          <a class="dtile span1" href="images/design-lo-lanyard.jpg" target="_blank" rel="noopener"><img src="images/design-lo-lanyard.jpg" alt="Leaders' Odyssey lanyard" loading="lazy"><span class="dcap"><b>Leaders' Odyssey lanyard</b> Trip merch</span></a>
+          <a class="dtile span1" href="images/design-sukad-poster.jpg" target="_blank" rel="noopener"><img src="images/design-sukad-poster.jpg" alt="Sukad athlete poster" loading="lazy"><span class="dcap"><b>Sukad athlete poster</b> Inter-college sports, 2024</span></a>
+          <a class="dtile span2" href="images/design-dragoniax-jersey.jpg" target="_blank" rel="noopener"><img src="images/design-dragoniax-jersey.jpg" alt="Dragoniax jersey" loading="lazy"><span class="dcap"><b>Dragoniax jersey</b> Sukad Aman Damai</span></a>
+          <a class="dtile span1" href="images/design-amaniax-poster.jpg" target="_blank" rel="noopener"><img src="images/design-amaniax-poster.jpg" alt="Amaniax merch launch" loading="lazy"><span class="dcap"><b>Amaniax merch launch</b> Jersey line and order poster</span></a>
+          <a class="dtile span1" href="images/design-barber-poster.jpg" target="_blank" rel="noopener"><img src="images/design-barber-poster.jpg" alt="Desasiswa barber" loading="lazy"><span class="dcap"><b>Desasiswa barber</b> Service poster</span></a>
+          <a class="dtile span3" href="images/design-debate-banner.jpg" target="_blank" rel="noopener"><img src="images/design-debate-banner.jpg" alt="Debate team recruitment" loading="lazy"><span class="dcap"><b>Debate team recruitment</b> Web banner</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -677,6 +735,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <h2>Where I've been</h2>
       </div>
       <div class="timeline">
+        <p class="tl-label eyebrow">Work</p>
         <div class="row">
           <p class="when">Mar 2025 to Sep 2025</p>
           <div>
@@ -685,38 +744,42 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <p>Upgraded the data centre inventory system with new modules, role-based access and audit trails.</p>
           </div>
         </div>
+        <p class="tl-label eyebrow">Leadership</p>
         <div class="row">
-          <p class="when">2026</p>
+          <p class="when">2022 to 2024</p>
+          <div>
+            <h3>Exco, Multimedia &amp; Publicity</h3>
+            <p class="org">Desasiswa Aman Damai, USM residential college</p>
+            <p>Ran the college's official social media, photography and event design.</p>
+            <ul class="row-list">
+              <li>Posted stories and updates, designed posters, and edited event videos and montages</li>
+              <li>As acting head of the unit for inter-college sports, scheduled where each exco was stationed across games running at the same time, and led the poster design</li>
+              <li>Covered a study trip to Aceh: photography, posters, banners, jersey design and post-event posts</li>
+              <li>Made sure every design was approved by the college leadership before its deadline</li>
+            </ul>
+            <p style="margin-top:10px"><a class="cert-link" href="#design">See the designs</a></p>
+          </div>
+        </div>
+        <p class="tl-label eyebrow">Education</p>
+        <div class="row">
+          <p class="when">2022 to 2026</p>
           <div>
             <h3>Bachelor of Computer Science (Intelligent Computing) with Honours</h3>
             <p class="org">Universiti Sains Malaysia, Penang</p>
             <p>Final year project on AI road hazard detection, awarded Silver at PIXEL 2026.</p>
           </div>
         </div>
+        <div class="row">
+          <p class="when">2021 to 2022</p>
+          <div>
+            <h3>Foundation in Engineering</h3>
+            <p class="org">Pusat Asasi UiTM Dengkil, Selangor</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="wrap about">
-      <div class="text">
-        <p class="eyebrow">About</p>
-        <div class="about-head">
-          <figure class="portrait"><span class="tag">hazwan</span><img src="images/hazwan.png" alt="Portrait of Ahmad Hazwan Syauqee"></figure>
-          <h2>Hi, I'm Hazwan.</h2>
-        </div>
-        <p>I like taking a model out of a notebook and turning it into something people use. My final year project went from labelling road images to a deployed app for citizens, admins and contractors.</p>
-        <p>I'm looking for roles in software engineering, AI and creative technology in the Klang Valley.</p>
-      </div>
-      <div class="skills">
-        <div><h4 class="eyebrow">AI &amp; data</h4><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Data augmentation</span><span class="chip">Tableau</span></div></div>
-        <div><h4 class="eyebrow">Web</h4><div class="chips"><span class="chip">React</span><span class="chip">Flask</span><span class="chip">PHP</span><span class="chip">Node.js / Express</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span></div></div>
-        <div><h4 class="eyebrow">Databases</h4><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL (Supabase)</span><span class="chip">Firebase / Firestore</span></div></div>
-        <div><h4 class="eyebrow">Cloud &amp; tools</h4><div class="chips"><span class="chip">Google Cloud Run</span><span class="chip">Docker</span><span class="chip">Figma</span></div></div>
-        <div><h4 class="eyebrow">Mobile &amp; 3D</h4><div class="chips"><span class="chip">Flutter</span><span class="chip">Unity</span></div></div>
-      </div>
-    </div>
-  </section>
 
   <section id="contact">
     <div class="wrap contact">
