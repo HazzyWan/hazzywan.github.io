@@ -282,6 +282,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .dcap b{display:block;font-size:.84rem}
 @media (max-width:700px){.dgrid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,40vw,220px)}.span3{grid-column:span 2}}
 @media (prefers-reduced-motion: reduce){.dtile img{transition:none}}
+.more + .more{margin-top:16px}
 </style>
 </head><body>
 
@@ -320,14 +321,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </div>
         <p>I like taking a model out of a notebook and turning it into something people use. My final year project went from labelling road images to a deployed app for citizens, admins and contractors.</p>
         <p>Outside code, I do photography, poster design and video editing, which I did for my residential college's media team.</p>
-        <p>I'm looking for roles in software engineering, AI and creative technology in the Klang Valley.</p>
+        <p>I'm looking for roles in software engineering, intelligent systems (AI, computer vision, IoT) and creative tech like 3D and VR, in the Klang Valley.</p>
       </div>
       <div class="skills">
         <div><h4 class="eyebrow">AI &amp; data</h4><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Data augmentation</span><span class="chip">Tableau</span></div></div>
         <div><h4 class="eyebrow">Web</h4><div class="chips"><span class="chip">React</span><span class="chip">Flask</span><span class="chip">PHP</span><span class="chip">Node.js / Express</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span></div></div>
         <div><h4 class="eyebrow">Databases</h4><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL (Supabase)</span><span class="chip">Firebase / Firestore</span></div></div>
+        <div><h4 class="eyebrow">IoT</h4><div class="chips"><span class="chip">ESP32</span><span class="chip">Arduino</span><span class="chip">Sensors &amp; actuators</span><span class="chip">MQTT</span></div></div>
         <div><h4 class="eyebrow">Cloud &amp; tools</h4><div class="chips"><span class="chip">Google Cloud Run</span><span class="chip">Docker</span><span class="chip">Figma</span></div></div>
-        <div><h4 class="eyebrow">Mobile &amp; 3D</h4><div class="chips"><span class="chip">Flutter</span><span class="chip">Unity</span></div></div>
+        <div><h4 class="eyebrow">Mobile, 3D &amp; VR</h4><div class="chips"><span class="chip">Flutter</span><span class="chip">Unity</span><span class="chip">Blender</span><span class="chip">PICO 4 VR</span></div></div>
       </div>
     </div>
   </section>
@@ -695,6 +697,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <!-- More work -->
       <div class="sec-head" style="margin-top:clamp(24px,4vw,40px)">
         <p class="eyebrow">More work</p>
+      </div>
+      <div class="more">
+        <figure class="shot" data-fit="contain" data-src="images/iot-drain.jpg">
+          <div class="ph"><span class="file">images/iot-drain.jpg</span><p>Prototype and live dashboard.</p></div>
+        </figure>
+        <div class="details">
+          <p class="eyebrow">IoT team project · CPC357 · 2025</p>
+          <h3>Smart Drainage Pipe Monitor</h3>
+          <p>An IoT prototype that catches drain blockages early. A Maker Feather S3 (ESP32-S3) reads ultrasonic and flow sensors, sounds a buzzer and LEDs on site, and streams readings to a live web dashboard.</p>
+          <p class="note">Status turns yellow at a partial blockage and red when critical. Built with Iqmal Aidid.</p>
+          <div class="chips"><span class="chip">ESP32-S3</span><span class="chip">Arduino</span><span class="chip">Ultrasonic + flow sensors</span><span class="chip">Firebase RTDB</span><span class="chip">HTML/JS dashboard</span></div>
+          <div class="links"><a href="https://youtu.be/JH_x748kPKg" target="_blank" rel="noopener">Demo video</a><a href="https://github.com/Raxatal/cpc357-project" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
       </div>
       <div class="more">
         <figure class="shot" data-fit="contain" data-src="images/tableau-dashboard.png">
