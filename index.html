@@ -283,6 +283,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media (max-width:700px){.dgrid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:clamp(140px,40vw,220px)}.span3{grid-column:span 2}}
 @media (prefers-reduced-motion: reduce){.dtile img{transition:none}}
 .more + .more{margin-top:16px}
+.t-mimos .case-body.solo{grid-template-columns:minmax(0,1fr)}
 </style>
 </head><body>
 
@@ -518,8 +519,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           </div>
         </div>
         </div>
-        <div class="case-body">
-          <div class="figs">
+        <!-- MIMOS screenshot carousel: hidden until MIMOS approves sharing.
+             To restore: move the 8 files from _not-used/mimos-screens back into images/,
+             delete this comment wrapper, and change "case-body solo" below to "case-body".
+        <div class="figs">
             <div class="carousel" aria-roledescription="carousel" aria-label="Inventory system walkthrough">
               <div class="track" tabindex="0">
               <figure class="slide" data-fit="cover">
@@ -563,6 +566,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
               </div>
             </div>
           </div>
+        END MIMOS screenshot carousel -->
+        <div class="case-body solo">
           <div class="details">
             <div>
               <h4>Problem</h4>
