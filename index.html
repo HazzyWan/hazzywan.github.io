@@ -284,6 +284,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media (prefers-reduced-motion: reduce){.dtile img{transition:none}}
 .more + .more{margin-top:16px}
 .t-mimos .case-body.solo{grid-template-columns:minmax(0,1fr)}
+
+/* course journey */
+.cj{margin-top:14px;border:1px solid var(--line);background:var(--surface)}
+.cj summary{cursor:pointer;padding:10px 14px;font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);list-style:none;display:flex;align-items:center;gap:8px}
+.cj summary::-webkit-details-marker{display:none}
+.cj summary::before{content:"+";color:var(--box);font-weight:700;width:1ch}
+.cj[open] summary::before{content:"\2212"}
+.cj summary:focus-visible{outline:2px solid var(--box);outline-offset:2px}
+.cj-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.cj-year{padding:12px 14px;min-width:0}
+.cj-year + .cj-year{border-left:1px solid var(--line)}
+.cj-head{margin:0 0 8px;font-family:var(--mono);font-size:.78rem;color:var(--box)}
+.cj-head b{color:var(--ink)}
+.cj-year ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:.86rem;line-height:1.35}
+.cj-link{font-family:var(--mono);font-size:.7rem;white-space:nowrap}
+@media (max-width:860px){.cj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cj-year:nth-child(3){border-left:0}.cj-year:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:480px){.cj-grid{grid-template-columns:minmax(0,1fr)}.cj-year + .cj-year{border-left:0;border-top:1px solid var(--line)}}
 </style>
 </head><body>
 
@@ -519,10 +536,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           </div>
         </div>
         </div>
-        <!-- MIMOS screenshot carousel: hidden until MIMOS approves sharing.
-             To restore: move the 8 files from _not-used/mimos-screens back into images/,
-             delete this comment wrapper, and change "case-body solo" below to "case-body".
-        <div class="figs">
+        <div class="case-body">
+          <div class="figs">
             <div class="carousel" aria-roledescription="carousel" aria-label="Inventory system walkthrough">
               <div class="track" tabindex="0">
               <figure class="slide" data-fit="cover">
@@ -566,8 +581,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
               </div>
             </div>
           </div>
-        END MIMOS screenshot carousel -->
-        <div class="case-body solo">
           <div class="details">
             <div>
               <h4>Problem</h4>
@@ -703,7 +716,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="sec-head" style="margin-top:clamp(24px,4vw,40px)">
         <p class="eyebrow">More work</p>
       </div>
-      <div class="more">
+      <div class="more" id="more-iot">
         <figure class="shot" data-fit="contain" data-src="images/iot-drain.jpg">
           <div class="ph"><span class="file">images/iot-drain.jpg</span><p>Prototype and live dashboard.</p></div>
         </figure>
@@ -716,7 +729,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div class="links"><a href="https://youtu.be/JH_x748kPKg" target="_blank" rel="noopener">Demo video</a><a href="https://github.com/Raxatal/cpc357-project" target="_blank" rel="noopener">GitHub</a></div>
         </div>
       </div>
-      <div class="more">
+      <div class="more" id="more-bi">
         <figure class="shot" data-fit="contain" data-src="images/tableau-dashboard.png">
           <div class="ph"><span class="file">images/tableau-dashboard.png</span><p>Full Tableau dashboard.</p></div>
         </figure>
@@ -761,7 +774,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div>
             <h3>Software Engineering Intern</h3>
             <p class="org">MIMOS Berhad, Kuala Lumpur</p>
-            <p>Upgraded the data centre inventory system with new modules, role-based access and audit trails.</p>
+            <p>Took a legacy PHP inventory system from a server and network tracker to a full asset management system, end to end.</p>
+            <ul class="row-list">
+              <li>Designed and built two new modules from scratch, for staff devices (EUC) and software licences, including database schemas, audit trails and assignment history</li>
+              <li>Added role-based access for five admin roles and reorganised 650+ device records from location-based to category-based</li>
+              <li>Prototyped the workflows in Figma and built the dashboards, device lists and forms with jQuery and Bootstrap</li>
+              <li>Wrote the UAT test scripts and led testing with four admin groups, fixing the issues they raised</li>
+              <li>Deployed from local XAMPP to the test server, and wrote the user manual and architecture diagram</li>
+            </ul>
           </div>
         </div>
         <p class="tl-label eyebrow">Leadership</p>
@@ -786,7 +806,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
           <div>
             <h3>Bachelor of Computer Science (Intelligent Computing) with Honours</h3>
             <p class="org">Universiti Sains Malaysia, Penang</p>
-            <p>Final year project on AI road hazard detection, awarded Silver at PIXEL 2026.</p>
+            <p>Majored in intelligent computing: AI, computer vision, IoT and data systems.</p>
+            <ul class="row-list">
+              <li>Final year project: an AI road hazard detection system with YOLOv8, a React PWA and a Cloud Run backend</li>
+              <li>Silver Award at PIXEL 2026, the School of Computer Sciences project showcase</li>
+              <li>Entered the same project into the IEM IDEAS Competition 2026 (individual category)</li>
+              <li>Coursework projects in IoT architecture, business intelligence and VR development</li>
+            </ul>
+            <details class="cj">
+              <summary>Course journey</summary>
+              <div class="cj-grid"><div class="cj-year"><p class="cj-head"><b>Year 1</b> <span>2022/23</span></p><ul><li>Principles of Programming</li><li>Discrete Structures</li><li>Computer Organisation</li><li>Logic &amp; Artificial Intelligence</li><li>Programming for Data Analytics</li><li>Programming Methodology &amp; Data Structures</li></ul></div><div class="cj-year"><p class="cj-head"><b>Year 2</b> <span>2023/24</span></p><ul><li>Integrated Software Development Workshop</li><li>Database Organisation &amp; Design</li><li>Software Engineering</li><li>Operating Systems</li><li>Machine Learning &amp; Computational Intelligence</li><li>Design &amp; Analysis of Algorithms</li><li>Computer Networks &amp; Security</li></ul></div><div class="cj-year"><p class="cj-head"><b>Year 3</b> <span>2024/25</span></p><ul><li>Group Innovation Project</li><li>Principles of Data Analytics</li><li>Natural Language Processing</li><li>Computer Graphics &amp; Visualisation</li><li>Programming Language Paradigms</li><li>Industrial Training, MIMOS Berhad <a class="cj-link" href="#mimos">project &rarr;</a></li></ul></div><div class="cj-year"><p class="cj-head"><b>Year 4</b> <span>2025/26</span></p><ul><li>Intelligent Computing Major Project <a class="cj-link" href="#road-hazard">project &rarr;</a></li><li>Web Engineering &amp; Technologies</li><li>IoT Architecture &amp; Smart Applications <a class="cj-link" href="#more-iot">project &rarr;</a></li><li>Parallel &amp; Cloud Computing</li><li>Business Intelligence &amp; Analytics <a class="cj-link" href="#more-bi">project &rarr;</a></li><li>Big Data Technologies</li><li>Animation &amp; Virtual Reality</li><li>Automata Theory &amp; Formal Languages</li><li>Professional &amp; Technopreneurship Development</li></ul></div></div>
+            </details>
           </div>
         </div>
         <div class="row">
