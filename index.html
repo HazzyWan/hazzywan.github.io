@@ -396,15 +396,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <div class="hud">
               <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
               <span class="rec"><i></i>REC · YOLOv8n</span>
-              <span class="fps">mAP@0.5 83.28%</span>
+              <span class="fps">mAP@0.5 79.8%</span>
               <span class="gps">3.1569° N 101.6130° E · Damansara</span>
             </div>
           </div>
         </div>
         <div class="metrics" aria-label="Key results">
-          <div><b>83.28%</b><span>mAP@0.5 on validation (target was 70%)</span></div>
-          <div><b>8,540</b><span>labelled road images, up from 4,318</span></div>
-          <div><b>3</b><span>connected apps: citizen PWA, admin dashboard and contractor portal</span></div>
+          <div><b>79.8%</b><span>mAP@0.5 on validation</span></div>
+          <div><b>8,560</b><span>labelled road images</span></div>
+          <div><b>3</b><span>connected apps: citizen web app, admin dashboard and contractor portal</span></div>
           <div><b>Silver</b><span>PIXEL 2026 innovation showcase</span></div>
         </div>
         <div class="case-body">
@@ -436,8 +436,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
                 <figcaption><b>Tropical augmentation</b> Simulated rain, shade, glare and haze during training.</figcaption>
               </figure>
               <figure class="slide" data-fit="contain">
-                <img src="images/fyp-results.jpg" alt="Training results" loading="lazy">
-                <figcaption><b>Training results</b> 83.28% mAP@0.5 after 100 epochs.</figcaption>
+                <img src="images/fyp-results-multi6.jpg" alt="Training results" loading="lazy">
+                <figcaption><b>Training results</b> 79.8% mAP@0.5 after 100 epochs.</figcaption>
               </figure>
               <figure class="slide" data-fit="svg">
                 <svg class="arch" viewBox="0 0 1600 1000" role="img" aria-label="System architecture: three web clients talk to a Flask API on Cloud Run running YOLOv8, backed by Firebase">
@@ -447,26 +447,26 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
                   <g fill="#252B30" stroke="#3A4248" stroke-width="2">
                     <rect x="80" y="130" width="400" height="190" rx="6"/><rect x="80" y="400" width="400" height="190" rx="6"/><rect x="80" y="670" width="400" height="190" rx="6"/>
                     <rect x="640" y="130" width="420" height="730" rx="6"/>
-                    <rect x="1200" y="130" width="320" height="160" rx="6"/><rect x="1200" y="330" width="320" height="160" rx="6"/><rect x="1200" y="530" width="320" height="160" rx="6"/>
+                    <rect x="1200" y="255" width="320" height="180" rx="6"/><rect x="1200" y="555" width="320" height="180" rx="6"/>
                   </g>
                   <g fill="#14171A" stroke="#F5B700" stroke-width="2"><rect x="680" y="200" width="340" height="120" rx="4"/><rect x="680" y="380" width="340" height="150" rx="4"/><rect x="680" y="590" width="340" height="120" rx="4"/></g>
                   <g font-family="Archivo, Arial, sans-serif" fill="#E9ECEA" font-weight="700" font-size="34">
                     <text x="110" y="205">Citizen app</text><text x="110" y="475">Admin dashboard</text><text x="110" y="745">Contractor portal</text>
                     <text x="710" y="255">Flask API</text><text x="710" y="440">YOLOv8 detector</text><text x="710" y="645">Retraining queue</text>
-                    <text x="1230" y="200">Firestore</text><text x="1230" y="400">Storage</text><text x="1230" y="600">Auth</text>
+                    <text x="1230" y="330">Firestore</text><text x="1230" y="630">Storage</text>
                   </g>
                   <g font-family="Atkinson Hyperlegible, Arial, sans-serif" fill="#A3ABB2" font-size="24">
-                    <text x="110" y="250">React PWA · photo + GPS</text><text x="110" y="285">no sign-up</text>
+                    <text x="110" y="250">React web app · photo + GPS</text><text x="110" y="285">no sign-up</text>
                     <text x="110" y="520">verify, correct, assign</text><text x="110" y="555">Leaflet hazard map</text>
                     <text x="110" y="790">accept, reject, complete</text><text x="110" y="825">link sent by email</text>
                     <text x="710" y="290">reports, workflow, email</text>
                     <text x="710" y="475">pothole · crack</text><text x="710" y="508">confidence + boxes</text>
                     <text x="710" y="680">promote only if mAP gains</text>
-                    <text x="1230" y="245">reports, status</text><text x="1230" y="445">photos</text><text x="1230" y="645">admin login</text>
+                    <text x="1230" y="375">reports, status</text><text x="1230" y="675">photos</text>
                   </g>
                   <g stroke="#F5B700" stroke-width="3" fill="none" marker-end="url(#ah)">
                     <path d="M480 225 H636"/><path d="M480 495 H636"/><path d="M480 765 H636"/>
-                    <path d="M1060 210 H1196"/><path d="M1060 410 H1196"/><path d="M1060 610 H1196"/>
+                    <path d="M1060 345 H1196"/><path d="M1060 645 H1196"/>
                     <path d="M850 320 V376"/><path d="M850 530 V586"/>
                   </g>
                   <text x="80" y="935" font-family="JetBrains Mono, monospace" font-size="22" fill="#F5B700">- - -&gt;  human in the loop: admin corrections feed the retraining queue</text>
@@ -492,17 +492,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
               <h4>What I built</h4>
               <ul>
                 <li>A YOLOv8 detector trained on Malaysian roads, with augmentation for rain, shade and glare</li>
-                <li>A React PWA to report hazards with a photo and GPS, no sign-up</li>
+                <li>A mobile-first React web app to report hazards with a photo and GPS, no sign-up</li>
                 <li>An admin dashboard where corrections retrain the model</li>
                 <li>A contractor portal that closes the repair loop</li>
               </ul>
             </div>
             <div>
               <h4>Stack</h4>
-              <div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Flask</span><span class="chip">Google Cloud Run</span><span class="chip">Firebase</span><span class="chip">React PWA</span><span class="chip">Leaflet.js</span></div>
+              <div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Flask</span><span class="chip">Google Cloud Run</span><span class="chip">Firebase</span><span class="chip">React</span><span class="chip">Leaflet.js</span></div>
             </div>
             <div class="links">
               <a href="https://youtu.be/7WFv5joPx0U" target="_blank" rel="noopener">PIXEL 2026 presentation</a>
+              <a href="https://github.com/HazzyWan/FYP_RoadHazard" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </div>
@@ -816,7 +817,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <p class="org">Universiti Sains Malaysia, Penang</p>
             <p>Majored in intelligent computing: AI, computer vision, IoT and data systems.</p>
             <ul class="row-list">
-              <li>Final year project: an AI road hazard detection system with YOLOv8, a React PWA and a Cloud Run backend</li>
+              <li>Final year project: an AI road hazard detection system with YOLOv8, a React web app and a Cloud Run backend</li>
               <li>Silver Award at PIXEL 2026, the School of Computer Sciences project showcase</li>
               <li>Entered the same project into the IEM IDEAS Competition 2026 (individual category)</li>
               <li>Coursework projects in IoT architecture, business intelligence and VR development</li>
