@@ -12,12 +12,7 @@
   --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#111417; --surface:#181C20; --ink:#E7EAE7; --muted:#9AA3AA; --line:#2A3036;
-  --box:#F0B132; --box-ink:#1A1405; --link:#62C6C1; color-scheme:dark;}}
-:root[data-theme="dark"]{
-  --bg:#111417; --surface:#181C20; --ink:#E7EAE7; --muted:#9AA3AA; --line:#2A3036;
-  --box:#F0B132; --box-ink:#1A1405; --link:#62C6C1; color-scheme:dark;}
+:root{color-scheme:light}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -210,7 +205,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .life{display:grid;gap:12px}
 .life-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .life-grid figure{margin:0;display:grid;gap:6px}
-.life-grid img{width:100%;aspect-ratio:1;object-fit:cover;display:block;border:1px solid var(--line)}
+.life-ph{display:block;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.life-grid img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .45s ease,filter .3s ease}
+.life-grid figcaption{transition:color .2s ease}
+@media (hover:hover){.life-grid figure:hover .life-ph{transform:translateY(-4px);border-color:var(--box);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.life-grid figure:hover img{transform:scale(1.06);filter:saturate(1.15)}
+.life-grid figure:hover figcaption{color:var(--ink)}}
+.life-ph:focus-visible{outline:2px solid var(--box);outline-offset:3px}
 .life-grid figcaption{margin:0;font-size:.82rem;color:var(--muted)}
 @media (max-width:700px){.life-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
@@ -301,6 +302,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .cj-link{font-family:var(--mono);font-size:.7rem;white-space:nowrap}
 @media (max-width:860px){.cj-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cj-year:nth-child(3){border-left:0}.cj-year:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:480px){.cj-grid{grid-template-columns:minmax(0,1fr)}.cj-year + .cj-year{border-left:0;border-top:1px solid var(--line)}}
+.contact-note{max-width:60ch;color:var(--muted);margin-top:-6px}
+.metrics span a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.lightbox{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh;overflow:visible}
+.lightbox::backdrop{background:rgba(10,12,14,.9)}
+.lightbox img{display:block;max-width:min(94vw,1100px);max-height:76vh;width:auto;height:auto;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.lightbox button{position:absolute;top:-44px;right:0;background:#fff;color:#111;border:0;font:700 .95rem/1 var(--body,inherit);padding:9px 14px;cursor:pointer}
+.lightbox p{color:#eee;font-size:.9rem;margin:8px 0 0}
 </style>
 </head><body>
 
@@ -318,7 +326,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <main id="top">
   <div class="wrap hero">
-    <p class="eyebrow">Damansara, Selangor · Open to work</p>
+    <p class="eyebrow">Petaling Jaya, Selangor · Open to work</p>
     <h1 class="bbox"><span class="tag">ai · full stack</span>Ahmad Hazwan<br>Syauqee</h1>
     <p class="lede">Computer science graduate who builds computer vision systems and the web apps around them. <span>From training a YOLOv8 model to shipping the dashboard people actually use.</span></p>
     <div class="actions">
@@ -339,7 +347,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         </div>
         <p>I like taking a model out of a notebook and turning it into something people use. My final year project went from labelling road images to a deployed app for citizens, admins and contractors.</p>
         <p>Outside code, I do photography, poster design and video editing, which I did for my residential college's media team.</p>
-        <p>I'm looking for roles in software engineering, intelligent systems (AI, computer vision, IoT), data analytics and creative tech like 3D programming, in the Klang Valley.</p>
+        <p>I'm looking for software engineering, AI, IoT and data roles in the Klang Valley.</p>
       </div>
       <div class="skills">
         <div><h4 class="eyebrow">AI &amp; data</h4><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Data augmentation</span><span class="chip">Tableau</span></div></div>
@@ -363,6 +371,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
       <article class="case t-fyp" id="road-hazard">
       <div class="wrap">
+        <div class="case-head">
+          <p class="eyebrow">Final year project · USM · 2025/26</p>
+          <h3>AI-Based Road Hazard Detection</h3>
+          <p class="sum">Report road damage from your phone, let AI check it, and send confirmed hazards to the repair crew.</p>
+        </div>
         <div class="banner">
           <div class="dash">
             <svg viewBox="0 0 1000 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -388,15 +401,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             </div>
           </div>
         </div>
-        <div class="case-head">
-          <p class="eyebrow">Final year project · USM · 2025/26</p>
-          <h3>AI-Based Road Hazard Detection</h3>
-          <p class="sum">Report road damage from your phone, let AI check it, and send confirmed hazards to the repair crew.</p>
-        </div>
         <div class="metrics" aria-label="Key results">
           <div><b>83.28%</b><span>mAP@0.5 on validation (target was 70%)</span></div>
           <div><b>8,540</b><span>labelled road images, up from 4,318</span></div>
-          <div><b>2</b><span>detection classes: pothole and crack, with crack subtypes like alligator and longitudinal</span></div>
+          <div><b>3</b><span>connected apps: citizen PWA, admin dashboard and contractor portal</span></div>
           <div><b>Silver</b><span>PIXEL 2026 innovation showcase</span></div>
         </div>
         <div class="case-body">
@@ -498,7 +506,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             </div>
           </div>
         </div>
-        <a class="award" href="images/pixel-certificate.jpg" target="_blank" rel="noopener">
+        <a class="award" href="images/pixel-certificate.jpg" data-lightbox>
           <img src="images/pixel-certificate.jpg" alt="PIXEL 2026 Silver Award certificate">
           <span>
             <span class="eyebrow">Award</span>
@@ -604,10 +612,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="life">
           <p class="eyebrow">Life at MIMOS</p>
           <div class="life-grid">
-            <figure><img src="images/mimos-life-assembly.jpg" alt="Monday assembly in the MIMOS lobby" style="object-position:center 60%"><figcaption>Fortnightly Monday assembly</figcaption></figure>
-            <figure><img src="images/mimos-life-raya.jpg" alt="Hari Raya celebration group photo"><figcaption>Hari Raya celebration</figcaption></figure>
-            <figure><img src="images/mimos-life-activity.jpg" alt="Team activity during the Raya event" style="object-position:center 70%"><figcaption>Raya event activities</figcaption></figure>
-            <figure><img src="images/mimos-life-badminton.jpg" alt="MIMOSlympics badminton team"><figcaption>Badminton team, MIMOSlympics</figcaption></figure>
+            <figure><a class="life-ph" href="images/mimos-life-assembly.jpg" data-lightbox><img src="images/mimos-life-assembly.jpg" alt="Monday assembly in the MIMOS lobby" style="object-position:center 60%"></a><figcaption>Fortnightly Monday assembly</figcaption></figure>
+            <figure><a class="life-ph" href="images/mimos-life-raya.jpg" data-lightbox><img src="images/mimos-life-raya.jpg" alt="Hari Raya celebration group photo"></a><figcaption>Hari Raya celebration</figcaption></figure>
+            <figure><a class="life-ph" href="images/mimos-life-activity.jpg" data-lightbox><img src="images/mimos-life-activity.jpg" alt="Team activity during the Raya event" style="object-position:center 70%"></a><figcaption>Raya event activities</figcaption></figure>
+            <figure><a class="life-ph" href="images/mimos-life-badminton.jpg" data-lightbox><img src="images/mimos-life-badminton.jpg" alt="MIMOSlympics badminton team"></a><figcaption>Badminton team, MIMOSlympics</figcaption></figure>
           </div>
         </div>
       </div>
@@ -616,17 +624,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <!-- 3. Sightline (Valorant heatmap) -->
       <article class="case t-sight" id="sightline">
       <div class="wrap">
+        <div class="case-head">
+          <p class="eyebrow">Side project · Valorant heatmap · 2026</p>
+          <h3>Sightline</h3>
+          <p class="sum">An interactive heatmap of where Valorant players stand, die and get kills, built from 1,358 ranked matches.</p>
+        </div>
         <div class="banner">
           <div class="tac">
             <canvas id="heat" aria-hidden="true"></canvas>
             <div class="legend" aria-hidden="true"><span class="on">Positions</span><span>Deaths</span><span>Kills</span></div>
             <span class="label">Sightline</span>
           </div>
-        </div>
-        <div class="case-head">
-          <p class="eyebrow">Side project · Valorant heatmap · 2026</p>
-          <h3>Sightline</h3>
-          <p class="sum">An interactive heatmap of where Valorant players stand, die and get kills, built from 1,358 ranked matches.</p>
         </div>
         <div class="case-body">
           <div class="figs">
@@ -672,17 +680,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <!-- 4. Product catalog -->
       <article class="case t-cat" id="catalog">
       <div class="wrap">
+        <div class="case-head">
+          <p class="eyebrow">Technical assessment · 2026</p>
+          <h3>Product Catalog App</h3>
+          <p class="sum">A Flutter product catalog built for technical assessment.</p>
+        </div>
         <div class="banner">
           <div class="mat">
             <div class="phone"><div class="screen" data-src="images/catalog-list.png" role="img" aria-label="Product list screen"><div class="bar"></div><div class="grid"><div class="card"><i></i><i></i></div><div class="card"><i></i><i></i></div><div class="card"><i></i><i></i></div><div class="card"><i></i><i></i></div></div></div></div>
             <div class="phone"><div class="screen" data-src="images/catalog-detail.png" role="img" aria-label="Product detail screen"><div class="hero"></div><div class="line"></div><div class="line s"></div><div class="line"></div><div class="btn"></div></div></div>
           </div>
           <span class="slotnote" id="cat-note">images/catalog-list.png · catalog-detail.png</span>
-        </div>
-        <div class="case-head">
-          <p class="eyebrow">Technical assessment · 2026</p>
-          <h3>Product Catalog App</h3>
-          <p class="sum">A Flutter product catalog built for technical assessment.</p>
         </div>
         <div class="case-body solo">
           <div class="details">
@@ -772,7 +780,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="row">
           <p class="when">Mar 2025 to Sep 2025</p>
           <div>
-            <h3>Software Engineering Intern</h3>
+            <h3>Industrial Intern (Software Engineering)</h3>
             <p class="org">MIMOS Berhad, Kuala Lumpur</p>
             <p>Took a legacy PHP inventory system from a server and network tracker to a full asset management system, end to end.</p>
             <ul class="row-list">
@@ -834,7 +842,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <section id="contact">
     <div class="wrap contact">
       <p class="eyebrow">Contact</p>
-      <h2>Let's talk.</h2>
+      <h2>Let's connect.</h2>
+      <p class="contact-note">I'm available now for software engineering, AI, IoT and data roles in the Klang Valley. Email is the fastest way to reach me.</p>
       <p class="big" id="email">hzwnsyq@gmail.com</p>
       <p class="phone-line">Phone: <a href="tel:+60145830313">014-583 0313</a></p>
       <div class="actions">
@@ -916,6 +925,13 @@ document.getElementById('copy').addEventListener('click', function(){
 });
 </script>
 
+<dialog class="lightbox" id="lightbox" aria-label="Image viewer"><button type="button" aria-label="Close">Close ✕</button><img alt=""><p></p></dialog>
+<script>
+(function(){var d=document.getElementById('lightbox');if(!d||!d.showModal)return;var im=d.querySelector('img'),cap=d.querySelector('p');
+document.addEventListener('click',function(e){var a=e.target.closest('[data-lightbox]');if(!a)return;e.preventDefault();var t=a.querySelector('img');im.src=a.getAttribute('href');im.alt=t?t.alt:'';var fc=a.closest('figure')&&a.closest('figure').querySelector('figcaption');cap.textContent=fc?fc.textContent:(t?t.alt:'');d.showModal();});
+d.querySelector('button').addEventListener('click',function(){d.close()});
+d.addEventListener('click',function(e){if(e.target===d)d.close()});})();
+</script>
 <!-- Visitor stats (private dashboard: hazzywan.goatcounter.com) -->
 <script data-goatcounter="https://hazzywan.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
