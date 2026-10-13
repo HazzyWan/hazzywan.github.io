@@ -60,7 +60,6 @@ section{padding-block:clamp(48px,7vw,88px);border-top:1px solid var(--line)}
 .case-head .sum{color:var(--muted);font-size:1.08rem}
 .case-body{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,48px);align-items:start}
 @media (max-width:820px){.case-body{grid-template-columns:minmax(0,1fr)}}
-@media (min-width:821px){.case-body:not(.solo) > .figs{position:sticky;top:84px}}
 .figs{display:grid;gap:12px;min-width:0}
 .figs .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:620px){.figs .pair:not(.phones){grid-template-columns:minmax(0,1fr)}.shot.tall .ph{inset:8px;padding:10px}.shot.tall .ph .file{font-size:.66rem;word-break:break-all}.shot.tall .ph p{font-size:.8rem}}
@@ -314,12 +313,81 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .t-sensen .chip{border-radius:999px;background:#FFE3D3;border-color:#FFE3D3}
 .ss-mat{position:absolute;inset:0;background:linear-gradient(135deg,#FF6A2B 0%,#FFA24A 100%);overflow:hidden}
 .ss-mat::after{content:"";position:absolute;right:-60px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.12)}
-.ss-laptop{position:absolute;left:6%;bottom:-6%;width:min(60%,600px);border-radius:12px 12px 0 0;overflow:hidden;box-shadow:0 18px 40px rgba(90,30,0,.35);border:6px solid #1D2033;border-bottom:0;background:#1D2033}
+.ss-laptop{position:absolute;left:6%;bottom:-1%;width:min(60%,600px);border-radius:12px 12px 0 0;overflow:hidden;box-shadow:0 18px 40px rgba(90,30,0,.35);border:6px solid #1D2033;border-bottom:0;background:#1D2033}
 .ss-laptop img,.ss-phone img{display:block;width:100%;height:auto}
 .ss-phone{position:absolute;right:9%;bottom:-22%;width:clamp(92px,16%,160px);border-radius:22px;overflow:hidden;border:5px solid #111;box-shadow:0 18px 40px rgba(90,30,0,.4);background:#111;z-index:1}
 .ss-tag{position:absolute;left:6%;top:18px;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:#fff;background:rgba(29,32,51,.55);padding:4px 10px}
-.t-sensen .ss-meta{margin-top:clamp(20px,3vw,32px)}
+.t-sensen .metrics b{color:var(--box)}
+.t-sensen .ss-meta{margin-top:clamp(20px,3vw,32px);display:grid;gap:22px}
+.t-sensen .ss-h{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:500}
+.ss-tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;position:relative}
+.ss-tl::before{content:"";position:absolute;left:6px;right:6px;top:6px;height:2px;background:repeating-linear-gradient(90deg,var(--box) 0 6px,transparent 6px 11px);opacity:.55}
+.ss-tl li{position:relative;padding-top:22px;display:grid;gap:2px;min-width:0;align-content:start}
+.ss-tl li::before{content:"";position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--box);box-sizing:border-box}
+.ss-tl .v{font-family:var(--mono);font-size:.74rem;color:var(--link);font-weight:700}
+.ss-tl b{font-size:.95rem;line-height:1.25}
+.ss-tl li > span:last-child{font-size:.82rem;color:var(--muted);line-height:1.35}
+.ss-btns{display:flex;flex-wrap:wrap;gap:10px}
+.ss-btn{display:inline-flex;align-items:center;padding:10px 18px;border-radius:999px;font-weight:700;font-size:.92rem;text-decoration:none;border:1.5px solid var(--box);color:var(--link);background:transparent;transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.ss-btn.primary{background:var(--box);color:#fff;box-shadow:0 6px 16px rgba(255,90,31,.3)}
+.ss-btn:hover{transform:translateY(-2px)}
+.ss-btn:not(.primary):hover{background:#FFE3D3}
+.ss-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ss-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--box);border-radius:12px;padding:14px 14px 16px;display:grid;gap:6px;box-shadow:0 4px 14px rgba(150,70,20,.06)}
+.ss-card b{font-size:1rem}
+.ss-card span{font-size:.88rem;color:var(--muted);line-height:1.45}
+.ss-flow{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:f}
+.ss-flow li{counter-increment:f;position:relative;padding-left:44px;display:grid;gap:2px;min-height:30px}
+.ss-flow li::before{content:counter(f);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--box);color:#fff;font-weight:700;font-size:.9rem;display:grid;place-items:center}
+.ss-flow li:not(:last-child)::after{content:"";position:absolute;left:14px;top:32px;bottom:-12px;width:2px;background:var(--line)}
+.ss-flow b{font-size:.98rem}
+.ss-flow span{font-size:.9rem;color:var(--muted);line-height:1.45}
+@media (max-width:820px){.t-sensen .case-body > .figs{display:contents}.t-sensen .case-body > .figs > .carousel{order:0}.t-sensen .case-body > .details{order:1}.t-sensen .ss-meta{order:2;margin-top:0}}
+@media (max-width:520px){.ss-btn{padding:9px 14px;font-size:.88rem}.ss-tl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:18px}.ss-tl::before{display:none}.ss-cards{grid-template-columns:minmax(0,1fr)}}
 .t-sensen .slide img{aspect-ratio:1600/782;object-fit:cover;object-position:top center;background:#EEF0F4}
+/* FYP: road hazard look */
+.rh-h{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:500}
+.rh-loop{margin-top:clamp(28px,3vw,36px)}
+.rh-loop ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:none}
+.rh-loop li{position:relative;display:grid;align-content:start;gap:6px;padding:18px 16px;background:var(--surface);border:1px solid var(--line);border-top:2px solid #F5B700}
+.rh-loop li:not(:last-child)::after{content:"\2192";position:absolute;right:-13px;top:18px;width:12px;text-align:center;color:var(--muted);font-size:.9rem;z-index:1}
+.rh-loop i{font-style:normal;font-family:var(--mono);font-size:.75rem;color:#F5B700;font-weight:700}
+.rh-loop b{font-size:1.05rem}
+.rh-loop span{font-size:.9rem;line-height:1.5;color:var(--muted)}
+.rh-bottom{margin-top:clamp(28px,3vw,36px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:start}
+.rh-bottom .award{max-width:none;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);margin:0;padding:14px;gap:22px;border-color:rgba(245,183,0,.45)}
+.rh-bottom .award b{font-size:1.5rem}
+.rh-bottom .award img{box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.rh-bottom .award:hover{border-color:#F5B700}
+.rh-ship{display:grid;gap:18px}
+.rh-ship h4,.rh-h4{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:500}
+.rh-spec{margin:0;display:grid;border-top:1px solid var(--line)}
+.rh-spec > div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+.rh-spec dt{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);opacity:.7;padding-top:3px}
+.rh-spec dd{margin:0;font-size:.92rem;line-height:1.5;color:var(--muted)}
+@media (max-width:820px){.rh-loop ol{grid-template-columns:repeat(2,minmax(0,1fr))}.rh-loop li::after{display:none}.rh-bottom{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.rh-loop ol{grid-template-columns:minmax(0,1fr)}.rh-bottom .award{grid-template-columns:minmax(0,1fr)}.rh-spec > div{grid-template-columns:minmax(0,1fr);gap:2px}}
+.rh-btns,.sl-btns{display:flex;flex-wrap:wrap;gap:10px}
+.rh-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;font-family:var(--mono);font-weight:700;font-size:.85rem;text-decoration:none;border:2px solid #F5B700;color:#F5B700;text-transform:uppercase;letter-spacing:.04em;transition:transform .15s ease,background .15s ease}
+.rh-btn.primary{background:#F5B700;color:#14171A}
+.rh-btn:hover{transform:translateY(-2px)}
+.rh-btn:not(.primary){border-color:var(--line);color:var(--ink)}
+.rh-btn:not(.primary):hover{border-color:#F5B700;color:#F5B700}
+/* Sightline: agent-select look */
+.t-sight .metrics b{font-family:"Barlow Condensed","Arial Narrow",sans-serif;color:#FF4655;letter-spacing:.02em}
+.sl-why{position:relative;background:var(--surface);padding:16px 18px 16px 20px;clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
+.sl-why::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#FF4655}
+.sl-why p{font-size:1.02rem}
+.sl-abil{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.sl-abil li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;background:var(--surface);padding:12px 14px;clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);border-left:2px solid transparent;transition:background .15s ease,transform .15s ease}
+.sl-abil li:hover{background:#1D2D3B;transform:translateX(4px)}
+.sl-abil kbd,.sl-ult kbd{display:grid;place-items:center;width:40px;height:40px;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:1.3rem;color:#ECE8E1;background:#0F1923;border:1.5px solid #FF4655;clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+.sl-abil div{display:grid;gap:2px}
+.sl-abil b{font-family:"Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:1.05rem}
+.sl-abil span{font-size:.9rem;color:var(--muted);line-height:1.4}
+.sl-ult{display:inline-flex;align-items:center;gap:12px;padding:8px 22px 8px 8px;background:#FF4655;color:#0F1923;text-decoration:none;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.06em;clip-path:polygon(0 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%);transition:transform .15s ease,filter .15s ease}
+.sl-ult kbd{background:#0F1923;border-color:#0F1923}
+.sl-ult:hover{transform:translateY(-2px);filter:brightness(1.08)}
 </style>
 </head><body>
 
@@ -500,33 +568,48 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
               <p>Road damage is found through slow manual checks and scattered complaints, and every report is verified by hand before repairs start.</p>
             </div>
             <div>
-              <h4>What I built</h4>
-              <ul>
-                <li>A YOLOv8 detector trained on Malaysian roads, with augmentation for rain, shade and glare</li>
-                <li>A mobile-first React web app to report hazards with a photo and GPS, no sign-up</li>
-                <li>An admin dashboard where corrections retrain the model</li>
-                <li>A contractor portal that closes the repair loop</li>
-              </ul>
-            </div>
-            <div>
-              <h4>Stack</h4>
-              <div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">Flask</span><span class="chip">Google Cloud Run</span><span class="chip">Firebase</span><span class="chip">React</span><span class="chip">Leaflet.js</span></div>
-            </div>
-            <div class="links">
-              <a href="https://youtu.be/7WFv5joPx0U" target="_blank" rel="noopener">PIXEL 2026 presentation</a>
-              <a href="https://github.com/HazzyWan/FYP_RoadHazard" target="_blank" rel="noopener">GitHub</a>
+              <h4 class="rh-h4">Under the hood</h4>
+              <dl class="rh-spec">
+                <div><dt>Inference</dt><dd>Two passes with CLAHE enhancement and a shadow guard on top of raw YOLO output</dd></div>
+                <div><dt>Stress test</dt><dd>6 tropical conditions: glare, canopy shadow, rain, wet road, haze, low light</dd></div>
+                <div><dt>Retraining</dt><dd>Admin corrections become training data; a new model goes live only if mAP@0.5 improves</dd></div>
+                <div><dt>Deploy</dt><dd>Flask API in Docker on Cloud Run, React app on Firebase Hosting</dd></div>
+              </dl>
             </div>
           </div>
         </div>
-        <a class="award" href="images/pixel-certificate.jpg" data-lightbox>
+        <div class="rh-loop">
+          <h4 class="rh-h">The repair loop I built</h4>
+          <ol>
+            <li><i>01</i><b>Report</b><span>Citizens snap a photo on a mobile-first web app. GPS is read from the photo, no sign-up.</span></li>
+            <li><i>02</i><b>Detect</b><span>YOLOv8 marks potholes and cracks with a confidence score.</span></li>
+            <li><i>03</i><b>Verify</b><span>Admins confirm or correct on a dashboard with a live hazard map.</span></li>
+            <li><i>04</i><b>Repair</b><span>Contractors get an email link to accept, reject and complete the job.</span></li>
+          </ol>
+        </div>
+        <div class="rh-bottom">
+          <div class="rh-ship">
+              <div>
+                <h4>Stack</h4>
+                <div class="chips"><span class="chip">Python</span><span class="chip">YOLOv8</span><span class="chip">OpenCV</span><span class="chip">Flask</span><span class="chip">Docker</span><span class="chip">Google Cloud Run</span><span class="chip">Firebase</span><span class="chip">React</span><span class="chip">Leaflet.js</span></div>
+              </div>
+              <div class="rh-btns">
+                <a class="rh-btn primary" href="https://youtu.be/7WFv5joPx0U" target="_blank" rel="noopener">&#9654; PIXEL 2026 presentation</a>
+                <a class="rh-btn" href="https://github.com/HazzyWan/FYP_RoadHazard" target="_blank" rel="noopener">GitHub</a>
+              </div>
+          </div>
+          <div>
+            <h4 class="rh-h">Award</h4>
+    <a class="award" href="images/pixel-certificate.jpg" data-lightbox>
           <img src="images/pixel-certificate.jpg" alt="PIXEL 2026 Silver Award certificate">
           <span>
-            <span class="eyebrow">Award</span>
             <b>Silver Award, PIXEL 2026</b>
             <span class="sub">School of Computer Sciences, Universiti Sains Malaysia · 20 June 2026</span><br>
             <span class="view">View certificate</span>
           </span>
         </a>
+          </div>
+        </div>
       </div>
       </article>
 
@@ -637,29 +720,38 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <article class="case t-sensen" id="sensen">
       <div class="wrap">
         <div class="case-head">
-          <p class="eyebrow">Side project · Live beta · 2026</p>
+          <p class="eyebrow">Side project · Live beta v0.7 · 2026</p>
           <h3>SenSen</h3>
           <p class="sum">A grocery price comparison app for Selangor, KL and Putrajaya, built on the government's PriceCatcher open data.</p>
         </div>
         <div class="banner">
           <div class="ss-mat">
             <span class="ss-tag">sensen-xi.vercel.app</span>
-            <div class="ss-laptop"><img src="images/sensen-laptop-home.jpg" alt="SenSen laptop home screen"></div>
-            <div class="ss-phone"><img src="images/sensen-phone-home.jpg" alt="SenSen installed on a phone, dark mode"></div>
+            <div class="ss-laptop"><img src="images/sensen-laptop-home.jpg" alt="SenSen on a laptop, with the floating budget card"></div>
+            <div class="ss-phone"><img src="images/sensen-phone-budget.jpg" alt="Budget plan on a phone, with cheaper-nearby hints"></div>
           </div>
+        </div>
+        <div class="metrics" aria-label="Key facts">
+          <div><b>v0.7</b><span>live beta, used on phone and laptop</span></div>
+          <div><b>3</b><span>states covered: Selangor, KL and Putrajaya</span></div>
+          <div><b>Daily</b><span>automatic data refresh, tests and deploy</span></div>
+          <div><b>RM 0</b><span>to run, on free tiers only</span></div>
         </div>
         <div class="case-body">
           <div class="figs">
             <div class="carousel" aria-roledescription="carousel" aria-label="SenSen screens">
               <div class="track" tabindex="0">
-              
               <figure class="slide">
-                <img src="images/sensen-laptop-item-nearme.jpg" alt="Item page" loading="eager">
-                <figcaption><b>Item page</b> A Low, Normal or High label against six months of history, and the cheapest shops within 3, 5 or 10 km.</figcaption>
+                <img src="images/sensen-laptop-budget.jpg" alt="Budget planner" loading="eager">
+                <figcaption><b>Budget planner</b> Pick a shop, set a budget, then add items from everything that shop sells.</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/sensen-laptop-item-nearme.jpg" alt="Item page" loading="lazy">
+                <figcaption><b>Item page</b> A Low, Normal or High label, the cheapest shops within 3, 5 or 10 km, and the budget card following along.</figcaption>
               </figure>
               <figure class="slide">
                 <img src="images/sensen-laptop-basket.jpg" alt="Basket comparison" loading="lazy">
-                <figcaption><b>Basket comparison</b> The cheapest single shop for everything in your basket, and what you save by splitting the trip.</figcaption>
+                <figcaption><b>Basket comparison</b> The cheapest single shop for your whole basket, and what you save by splitting the trip.</figcaption>
               </figure>
               <figure class="slide">
                 <img src="images/sensen-laptop-browse-ranking.jpg" alt="Browse and shop ranking" loading="lazy">
@@ -668,36 +760,52 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
               </div>
               <div class="car-nav">
                 <button type="button" class="car-btn prev" aria-label="Previous slide">&larr;</button>
-                <div class="dots"><button type="button" aria-label="Slide 1: Item page"></button><button type="button" aria-label="Slide 2: Basket comparison"></button><button type="button" aria-label="Slide 3: Browse and shop ranking"></button></div>
-                <span class="count mono">1 / 3</span>
+                <div class="dots"><button type="button" aria-label="Slide 1: Budget planner"></button><button type="button" aria-label="Slide 2: Item page"></button><button type="button" aria-label="Slide 3: Basket comparison"></button><button type="button" aria-label="Slide 4: Browse and shop ranking"></button></div>
+                <span class="count mono">1 / 4</span>
                 <button type="button" class="car-btn next" aria-label="Next slide">&rarr;</button>
               </div>
             </div>
-            <div class="details ss-meta">
-            <div>
-                <h4>Stack</h4>
+            <div class="ss-meta">
+              <div>
+                <h4 class="ss-h">Next up</h4>
+                <ol class="ss-tl">
+                  <li><span class="v">v0.8</span><b>Visual search</b><span>Scan an item with the camera</span></li>
+                  <li><span class="v">v0.9</span><b>Community prices</b><span>For items PriceCatcher misses</span></li>
+                  <li><span class="v">v1.0</span><b>AI assistant</b><span>Answers from real prices</span></li>
+                  <li><span class="v">v1.1</span><b>Mascot and tour</b><span>A guided first run</span></li>
+                </ol>
+              </div>
+              <div>
+                <h4 class="ss-h">Stack</h4>
                 <div class="chips"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">PWA</span><span class="chip">Open Data</span><span class="chip">GitHub Actions</span><span class="chip">Vercel</span></div>
               </div>
-              <div class="links">
-                <a href="https://sensen-xi.vercel.app" target="_blank" rel="noopener">Live app</a>
-                <a href="https://github.com/HazzyWan/sensen" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://sensen-api.vercel.app/docs" target="_blank" rel="noopener">API docs</a>
+              <div class="ss-btns">
+                <a class="ss-btn primary" href="https://sensen-xi.vercel.app" target="_blank" rel="noopener">Open live app &#8599;</a>
+                <a class="ss-btn" href="https://github.com/HazzyWan/sensen" target="_blank" rel="noopener">GitHub</a>
+                <a class="ss-btn" href="https://sensen-api.vercel.app/docs" target="_blank" rel="noopener">API docs</a>
               </div>
             </div>
           </div>
           <div class="details">
             <div>
               <h4>Why</h4>
-              <p>KPDN publishes what shops charge for hundreds of everyday items, but only as raw data files. SenSen turns it into answers: what an item usually costs, which shop nearby is cheaper, and when a price is higher than normal.</p>
+              <p>Shoppers can't tell if a price is fair. KPDN publishes what shops charge, but only as raw data files. SenSen turns that into answers.</p>
+            </div>
+            <div>
+              <h4>New in v0.7</h4>
+              <div class="ss-cards">
+                <div class="ss-card"><b>Budget planner</b><span>Pick a shop, set a budget and watch it drop as you add items, with a hint when a shop nearby is cheaper.</span></div>
+                <div class="ss-card"><b>Smarter area picker</b><span>Finds your area from the 5 nearest shops. Type Ampang or Cyberjaya and it finds the district.</span></div>
+              </div>
             </div>
             <div>
               <h4>How it works</h4>
-              <ul>
-                <li>A Python pipeline cleans 6 months of PriceCatcher data into weekly prices and labels</li>
-                <li>A FastAPI backend serves it from memory, no database needed</li>
-                <li>"Near me" distances are worked out on the phone, so your location never leaves it</li>
-                <li>GitHub Actions refreshes, tests and redeploys every morning, at RM 0 on free tiers</li>
-              </ul>
+              <ol class="ss-flow">
+                <li><b>Pipeline</b><span>Python cleans 6 months of PriceCatcher data, refreshed every morning by GitHub Actions</span></li>
+                <li><b>API</b><span>FastAPI serves it from memory, no database. New: /shops and /shops/{code}/items</span></li>
+                <li><b>App</b><span>React PWA with separate phone and laptop layouts</span></li>
+                <li><b>Private</b><span>Nearby shops and distances are worked out on your phone. Your location never reaches the server</span></li>
+              </ol>
             </div>
             <p class="note">An independent project, not connected to KPDN or DOSM. Prices from PriceCatcher by KPDN on data.gov.my (CC BY 4.0). Shop locations &copy; OpenStreetMap contributors.</p>
           </div>
@@ -720,6 +828,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             <span class="label">Sightline</span>
           </div>
         </div>
+        <div class="metrics" aria-label="Key facts">
+          <div><b>1,358</b><span>ranked matches analysed</span></div>
+          <div><b>3</b><span>views: positions, deaths and kills</span></div>
+          <div><b>5</b><span>filters: map, rank, side, agent, round phase</span></div>
+          <div><b>Live</b><span>on Netlify, free to try</span></div>
+        </div>
         <div class="case-body">
           <div class="figs">
             <figure class="shot" data-fit="contain" style="aspect-ratio:997/881" data-src="images/valorant-ui.jpg">
@@ -735,24 +849,24 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
             </div>
           </div>
           <div class="details">
-            <div>
+            <div class="sl-why">
               <h4>Why</h4>
               <p>When I peek a site, where is the enemy most likely to be? I wanted real match data instead of gut feel.</p>
             </div>
             <div>
               <h4>How it works</h4>
-              <ul>
-                <li>Pulls ranked match data from the HenrikDev API</li>
-                <li>Python maps every player's position onto the minimap and turns it into heatmaps</li>
-                <li>Filter by map, rank, side, agent and round phase</li>
-              </ul>
+              <ol class="sl-abil">
+                <li><kbd>C</kbd><div><b>Collect</b><span>Pulls ranked match data from the HenrikDev API</span></div></li>
+                <li><kbd>Q</kbd><div><b>Map</b><span>Python places every player's position on the minimap and builds the heatmaps</span></div></li>
+                <li><kbd>E</kbd><div><b>Filter</b><span>By map, rank, side, agent and round phase</span></div></li>
+              </ol>
             </div>
             <div>
               <h4>Stack</h4>
               <div class="chips"><span class="chip">Python</span><span class="chip">pandas, NumPy, SciPy</span><span class="chip">HTML/JS</span><span class="chip">HenrikDev API</span><span class="chip">Netlify</span></div>
             </div>
-            <div class="links">
-              <a href="https://sightline-val.netlify.app" target="_blank" rel="noopener">Live demo</a>
+            <div class="sl-btns">
+              <a class="sl-ult" href="https://sightline-val.netlify.app" target="_blank" rel="noopener"><kbd>X</kbd><span>Try the live demo</span></a>
               <!-- Add once the repo is public: <a href="https://github.com/HazzyWan/sightline" target="_blank" rel="noopener">GitHub</a> -->
             </div>
             <p class="note">Sightline isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties.</p>
